@@ -623,17 +623,17 @@ def main() -> int:
     )
 
     if failures:
-        print("\n2需要修改")
+        print("\n需要修改")
         for item in failures:
             print(f"- {item}")
 
     if warnings:
-        print("\n1以下内容需要结合上下文判断修改")
+        print("\n以下内容需要修改")
         for item in warnings:
             print(f"- {item}")
 
     if not failures and not warnings:
-        print("\n0未发现问题，可以进入下一阶段！")
+        print("\n未发现问题，可以进入下一阶段！")
 
     return 1 if failures else 0
 
