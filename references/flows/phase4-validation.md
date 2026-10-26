@@ -26,6 +26,7 @@
    ```bash
    python {skillBaseDir}/scripts/check_prose.py --all <项目文件夹路径> --json
    ```
+   退出码：pass=达标，fail=不达标。读取不达标的部分进行修改。
    提示没有问题就可以进入下一阶段
 4. **更新 JSON**：将 `wordCount` 和 `wordCountPass` 写入对应章节记录
 
