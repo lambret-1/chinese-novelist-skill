@@ -22,7 +22,12 @@
    python {skillBaseDir}/scripts/check_chapter_wordcount.py --all <项目文件夹路径> --json
    ```
    退出码：0=全部达标，1=有不达标，2=错误。从 `--json` 输出的 `results[]` 读取各章 `word_count` 与 `status`
-3. **更新 JSON**：将 `wordCount` 和 `wordCountPass` 写入对应章节记录
+3. **去Ai味检查**：使用脚本批量检查（`{skillBaseDir}` 为 skill 安装根目录，见 [shared-infrastructure.md](shared-infrastructure.md)）：
+   ```bash
+   python {skillBaseDir}/scripts/check_prose.py --all <项目文件夹路径> --json
+   ```
+   提示没有问题就可以进入下一阶段
+4. **更新 JSON**：将 `wordCount` 和 `wordCountPass` 写入对应章节记录
 
 ### 3. 汇总结果
 
