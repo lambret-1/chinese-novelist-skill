@@ -108,8 +108,9 @@ JSON 损坏处理
 • JSON 解析失败时：提示用户，尝试从 99‑章节摘要.md 推断完成进度
 
 • 章节状态丢失时：通过文件存在性以及 check_prose.py 脚本输出重建状态
+
 字数&去AI味合并检查脚本
-原独立字数脚本 check_chapter_wordcount.py 已废弃；全部字数+文风AI痕迹校验统一使用 check_prose.py，开启--word‑check即同时执行字数校验（默认最低2000汉字）。
+
 使用 {skillBaseDir}/scripts/check_prose.py 做章节校验。{skillBaseDir} 指 SKILL.md 所在的 skill 安装根目录（如 ~/.claude/skills/chinese‑novelist）——脚本不在用户项目内，必须用 skill 安装目录的绝对路径调用，禁止写相对路径 scripts/...（那只存在于 skill 源码目录，用户项目解析不到）。
 # 检查单个章节：文风检测 + 开启字数校验(默认最低2000字)，--json输出机器可读结果
 python {skillBaseDir}/scripts/check_prose.py ./chinese‑novelist/项目文件夹/第01章.md --word-check --json
@@ -139,4 +140,4 @@ Phase 3（逐章创作） 单章写完后执行校验，补齐字数同时清除
 Phase 4（自动校验） 批量全部章节校验，不合格章节进入自动重写修复流程 
 
 说明：开启--word‑check才会执行字数校验；不添加该参数仅做文风检测，不校验章节字数。
-章节不达标修复时，不能仅补字数，必须同时消除脚本输出failures与warnings全部条目，对照文风基准改写。
+章节不达标修复时，不能仅补字数，必须同时消除脚本输出failures与warnings全部条目，对照《执棋人》文风基准改写。
