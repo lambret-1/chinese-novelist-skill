@@ -71,7 +71,13 @@
     退出码：0=达标，1=不足，2=错误。优先解析 `--json` 输出中的 `word_count` 填入写作计划，不要解析文本报告
 
     低于 3000 字 → 使用 [content-expansion.md](../guides/content-expansion.md) 扩充后复检，直至达标（不得注水）
+16. **Ai味检查** — 必须使用脚本检查：
 
+    ```bash
+    python {skillBaseDir}/scripts/check_prose.py <章节文件路径> --json
+    ```
+
+    退出码:未发现问题，可以进入下一阶段！
 ---
 
 ## 阶段 D：收尾
