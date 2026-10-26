@@ -141,4 +141,33 @@ Agent 优先用 `--json` + 退出码判断结果：`results[].word_count` 可直
 | Phase 3（逐章创作） | 撰写后检查单章字数，低于3000字必须扩充 |
 | Phase 4（自动校验） | 批量检查所有章节字数，不合格章节自动重写 |
 
-低于3000字的章节必须使用 [content-expansion.md](../guides/content-expansion.md) 的扩充技巧进行扩充。
+低于3000字的章节必须使用 [content-expansion.md](../guides/content-expansion.md) 的扩充技巧进行扩充
+
+## 去Ai味检查脚本
+
+使用 `{skillBaseDir}/scripts/check_prose.py` 检查章节字数。`{skillBaseDir}` 指 SKILL.md 所在的 skill 安装根目录（如 `~/.claude/skills/chinese-novelist`）——脚本不在用户项目内，**必须用 skill 安装目录的绝对路径调用**，禁止写相对路径 `scripts/...`（那只存在于 skill 源码目录，用户项目解析不到）。
+
+```bash
+# 检查单个章节（书写达不达标）
+python {skillBaseDir}/scripts/check_prose.py ./chinese-novelist/项目文件夹/第01章.md --json
+
+# 检查所有章节（书写达不达标）
+python {skillBaseDir}/scripts/check_prose.py --all ./chinese-novelist/项目文件夹/ --json
+
+```
+
+### 退出码
+
+| 退出码 | 含义 |
+|-------|------|
+| 0 | 全部达标 |
+| 1 | 不达标需要修改 |
+| 2 | 不达标需要修改 |
+
+
+### 使用场景
+
+| 阶段 | 用途 |
+|------|------|
+| Phase 3（逐章创作） | 撰写后检查书写质量|
+| Phase 4（自动校验） | 批量检查所有章节去AI味情况，不合格章节自动重写 |
