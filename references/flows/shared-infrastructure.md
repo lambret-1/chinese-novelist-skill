@@ -160,9 +160,8 @@ python {skillBaseDir}/scripts/check_prose.py --all ./chinese-novelist/项目文�
 
 | 退出码 | 含义 |
 |-------|------|
-| 0 | 全部达标 |
-| 1 | 不达标需要修改 |
-| 2 | 不达标需要修改 |
+| pass | 达标 |
+| fail | 不达标需要修改 |
 
 
 ### 使用场景
