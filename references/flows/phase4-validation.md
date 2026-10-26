@@ -17,17 +17,12 @@
 对每一章执行以下检查：
 
 1. **文件存在性**：检查 `filePath` 指定的文件是否存在
-2. **字数检查**：使用脚本批量检查（`{skillBaseDir}` 为 skill 安装根目录，见 [shared-infrastructure.md](shared-infrastructure.md)）：
-   ```bash
-   python {skillBaseDir}/scripts/check_chapter_wordcount.py --all <项目文件夹路径> --json
-   ```
-   退出码：0=全部达标，1=有不达标，2=错误。从 `--json` 输出的 `results[]` 读取各章 `word_count` 与 `status`
-3. **去Ai味检查**：使用脚本批量检查（`{skillBaseDir}` 为 skill 安装根目录，见 [shared-infrastructure.md](shared-infrastructure.md)）：
+2. **字数与AI味检查**：使用脚本批量检查（`{skillBaseDir}` 为 skill 安装根目录，见 [shared-infrastructure.md](shared-infrastructure.md)）：
    ```bash
    python {skillBaseDir}/scripts/check_prose.py --all <项目文件夹路径> --json
    ```
-   退出码：pass=达标，fail=不达标。读取不达标的部分进行修改。
-   提示没有问题就可以进入下一阶段
+   退出码：0=全部达标，1=有不达标，2=错误。从 `--json` 输出的 `results[]` 读取各章 `word_count` 与 `status`
+
 4. **更新 JSON**：将 `wordCount` 和 `wordCountPass` 写入对应章节记录
 
 ### 3. 汇总结果
@@ -70,5 +65,5 @@
 
 如有不合格章节（超过3次重写仍未通过），在报告中标注：
 ```
-⚠️ 第X章：字数不足（[实际字数]/3000），已重试3次
+⚠️ 第X章：字数不足（[实际字数]/2000），已重试3次
 ```
