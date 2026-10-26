@@ -77,8 +77,8 @@
     ```bash
     python {skillBaseDir}/scripts/check_prose.py <章节文件路径> --json
     ```
-
-    如果未发现问题，就可以进入下一阶段！
+    pass=达标，fail=不达标，需要修改
+    
 ---
 
 ## 阶段 D：收尾
