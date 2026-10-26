@@ -615,7 +615,7 @@ def main() -> int:
     print(
         f"翻案句 {len(pivots)}，翻案腔变形 {len(semantic_pivots)}，"
         f"同构排比 {len(anaphoras)}，名词化 {len(nominalizations)}，"
-        f"黑话 {len(jargon_matches)}，硬停词 {len(stop_matches)}，"
+        f"黑话 {len(jargon_matches)}，高频用词 {len(stop_matches)}，"
         f"模型路标 {len(road_signs)}，需辨语境词 {len(context_jargon_matches)}，"
         f"抒情词 {len(lyric_matches)}，洞察路标 {len(marker_matches)}，"
         f"长前置成分 {len(left_branches)}，重定语句 {len(dense_de)}，"
@@ -628,7 +628,7 @@ def main() -> int:
             print(f"- {item}")
 
     if warnings:
-        print("\n需要结合上下文判断")
+        print("\n以下内容需要结合上下文判断修改")
         for item in warnings:
             print(f"- {item}")
 
